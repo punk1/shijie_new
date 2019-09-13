@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="@drawable/shape_album_item_bg">
+        <TextView
+            android:id="@+id/album_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:lines="1"
+            android:ellipsize="end"
+            android:text="古诗题目古诗题目古诗题目"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/album_author"
+            android:layout_below="@+id/album_title_tv"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="作者"
+            android:textColor="#ff848484"
+            android:textSize="13sp"
+            android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/album_date"
+        android:textSize="8sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/album_author"
+        android:layout_marginTop="5dp"/>
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.shijie.interfaces;
 
 import com.example.shijie.beans.Poetry;
+import com.example.shijie.beans.PoetryHistory;
 
 
 import java.util.List;
@@ -17,5 +18,6 @@ public interface AlbumDetailViewCallBack {
      * @param album
      */
     void onAlbumLoaded(Poetry album);
+    void onAlbumLoaded(PoetryHistory album);
 }
 

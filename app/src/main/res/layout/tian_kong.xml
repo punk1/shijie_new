@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/normal_bg">
+    <include layout="@layout/base_toolbar"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/base_app_bar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_below="@+id/base_app_bar">
+        <TextView
+            android:id="@+id/tv_last_poem"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="上一首"
+            android:background="@drawable/next_tv_bg"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/tv_next_poem"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="下一首"
+            android:background="@drawable/next_tv_bg"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+</RelativeLayout>

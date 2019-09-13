@@ -2,7 +2,11 @@ package com.example.shijie.presenters;
 
 import android.util.Log;
 
+import com.example.shijie.beans.Config;
 import com.example.shijie.beans.Poetry;
+import com.example.shijie.beans.PoetryHistory;
+import com.example.shijie.interfaces.HistoryPresenter;
+import com.example.shijie.interfaces.HistoryViewCallback;
 import com.example.shijie.interfaces.IRecommendPresenter;
 import com.example.shijie.interfaces.IRecommendViewCallback;
 import com.example.shijie.utils.LogUtil;
@@ -14,62 +18,51 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
-public class RecommendPresenter implements IRecommendPresenter {
+public class IHistoryPresenter implements HistoryPresenter {
 
     private int page ;
     private int limitCount = 10;//10条数据
     private static final String TAG = "tui";
-    private List<IRecommendViewCallback> mcallbacks = new ArrayList<>();
-    private List<Poetry> mlist = new ArrayList<>();
-    private Poetry mpoetry;
+    private List<HistoryViewCallback> mcallbacks = new ArrayList<>();
+    private List<PoetryHistory> mlist = new ArrayList<>();
+    private PoetryHistory mpoetry;
 
-    private RecommendPresenter(){}
+    private IHistoryPresenter(){}
 
-    private static RecommendPresenter sInstance = null ;
+    private static IHistoryPresenter sInstance = null ;
 
     /**
      * 获取单例对象
      * @return
      */
 
-    public static RecommendPresenter getInstance(){
+    public static IHistoryPresenter getInstance(){
         if (sInstance == null){
-            synchronized (RecommendPresenter.class){
+            synchronized (IHistoryPresenter.class){
                 if (sInstance == null){
-                    sInstance = new RecommendPresenter();
+                    sInstance = new IHistoryPresenter();
                 }
             }
         }
         return sInstance;
     }
     private void doLoaed(final boolean isLoaderMore){
-        BmobQuery<Poetry> query=new BmobQuery<Poetry>();
-        query.setLimit(limitCount);
-        if (page != 0) {
-            query.setSkip(limitCount * page);
-        }
-        query.findObjects(new FindListener<Poetry>() {
+        BmobQuery<PoetryHistory> query=new BmobQuery<>();
+        Log.d("xiang", "doLoaed: 加载 历史");
+        query.addWhereEqualTo("u_id", Config.getInstance().user.getObjectId());
+        Log.d("cha", "initData: Objectid"+Config.getInstance().user.getObjectId());
+        query.order("-updatedAt");
+        query.findObjects(new FindListener<PoetryHistory>() {
             @Override
-            public void done(List<Poetry> list, BmobException e) {
-                if(e ==null){
-                    Log.d(TAG, "done: poetrty --->"+list.size());
-                    for (int i = 0; i < list.size(); i++) {
-                        Log.d(TAG, "done: poetry"+i+list.get(i));
-                    }
-                    if(isLoaderMore){
-                        // 上啦加载 放到后面
-                        mlist.addAll(mlist.size()-1,list);
+            public void done(List<PoetryHistory> list, BmobException e) {
+                if(e == null){
+                    if (list != null && list.size() > 0) {
+                        handlerRecommendResunt(list);
                     }else{
-                        //下拉加载 放到前面
-                        mlist.addAll(0,list);
-                    }
 
-                    handlerRecommendResunt(mlist);
-                }else{
-                    if (isLoaderMore){
-                        page--;
                     }
-                    LogUtil.d("tui", "错误码："+e.getErrorCode()+"，错误描述："+e.getMessage());
+                }else{
+
                 }
             }
         });
@@ -79,7 +72,6 @@ public class RecommendPresenter implements IRecommendPresenter {
     @Override
     public void getRecommendList() {
         updataloading();
-
         Log.d(TAG, "getRecommendList: 获取 诗内容");
 //        Map<String, String > map = new HashMap<>();
 //        map.put(DTransferConstants.LIKE_COUNT, Constants.recommend_count+"");
@@ -107,7 +99,7 @@ public class RecommendPresenter implements IRecommendPresenter {
 //                handlerror();
 //            }
 //        });
-       doLoaed(false);
+        doLoaed(false);
 
     }
 
@@ -115,22 +107,22 @@ public class RecommendPresenter implements IRecommendPresenter {
 
     private void handlerror() {
         if (mcallbacks!=null){
-            for (IRecommendViewCallback callback :mcallbacks){
+            for (HistoryViewCallback callback :mcallbacks){
                 callback.onNetworkerror();
             }
         }
     }
 
 
-    private void handlerRecommendResunt(List<Poetry> albumList) {
+    private void handlerRecommendResunt(List<PoetryHistory> albumList) {
         if (albumList != null){
             if (albumList.size() == 0){
-                for (IRecommendViewCallback callback : mcallbacks){
+                for (HistoryViewCallback callback : mcallbacks){
                     callback.onEmpty();
                 }
             }else {
                 //通知 UI
-                for (IRecommendViewCallback callback :mcallbacks){
+                for (HistoryViewCallback callback :mcallbacks){
                     callback.onRecommendListload(albumList);
                 }
             }
@@ -144,7 +136,7 @@ public class RecommendPresenter implements IRecommendPresenter {
     }
 
     private void  updataloading(){
-        for(IRecommendViewCallback callback :mcallbacks){
+        for(HistoryViewCallback callback :mcallbacks){
             callback.onLoad();
         }
 
@@ -165,21 +157,22 @@ public class RecommendPresenter implements IRecommendPresenter {
     }
 
     @Override
-    public void registerViewCallback(IRecommendViewCallback callback) {
+    public void registerViewCallback(HistoryViewCallback callback) {
         if (!mcallbacks.contains(callback)&& mcallbacks!=null){
             mcallbacks.add(callback);
         }
     }
 
     @Override
-    public void unRegisterCallback(IRecommendViewCallback callback) {
+    public void unRegisterCallback(HistoryViewCallback callback) {
         if (mcallbacks != null){
             mcallbacks.remove(callback);
         }
 
     }
-    public void setTargetAlbum(Poetry album){
+    public void setTargetAlbum(PoetryHistory album){
         this.mpoetry = album;
     }
 
 }
+

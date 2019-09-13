@@ -16,6 +16,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['libs']
+//        }
+//   }
 }
 configurations {
     all*.exclude group: 'com.google.code.gson'
@@ -23,9 +32,6 @@ configurations {
 }
 
 dependencies {
-
-
-
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'cn.bmob.android:bmob-sdk:3.6.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -38,7 +44,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
     implementation 'com.squareup.picasso:picasso:2.3.2'
+
 }

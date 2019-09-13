@@ -7,6 +7,7 @@ import android.util.Log;
 
 
 import com.example.shijie.beans.Poetry;
+import com.example.shijie.beans.PoetryHistory;
 import com.example.shijie.interfaces.AlbumDetailViewCallBack;
 import com.example.shijie.interfaces.IAlbumDetailPresenter;
 
@@ -17,6 +18,7 @@ import java.util.Map;
 
 public class AlbumDetailPresenter implements IAlbumDetailPresenter {
     private Poetry mTargetAlbum;
+    private PoetryHistory sTargetAlbum;
     private List<AlbumDetailViewCallBack>mCallBacks = new ArrayList<>();
     private String TAG= "tui";
 
@@ -87,6 +89,9 @@ public class AlbumDetailPresenter implements IAlbumDetailPresenter {
             if (mTargetAlbum != null){
                 callBack.onAlbumLoaded(mTargetAlbum);
             }
+            if(sTargetAlbum != null){
+                callBack.onAlbumLoaded(sTargetAlbum);
+            }
         }
     }
 
@@ -98,6 +103,9 @@ public class AlbumDetailPresenter implements IAlbumDetailPresenter {
 
     public void setTargetAlbum(Poetry album){
         this.mTargetAlbum = album;
+    }
+    public void setTargetAlbum(PoetryHistory album){
+        this.sTargetAlbum = album;
     }
 }
 

@@ -3,7 +3,82 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string-array name= "indicator_title">
         <item>推荐</item>
-        <item>订阅</item>
-        <item>历史</item>
+        <item>收藏</item>
+        <item>历史记录</item>
     </string-array>
+    <!--讯飞语音可配置参数-->
+    <string-array name="stream_entries">
+        <item>通话</item>
+        <item>系统</item>
+        <item>铃声</item>
+        <item>音乐</item>
+        <item>闹铃</item>
+        <item>通知</item>
+    </string-array>
+    <string-array name="stream_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="voicer_cloud_entries">
+        <item>小燕—女青、中英、普通话</item>
+        <item>小宇—男青、中英、普通话</item>
+        <item>凯瑟琳—女青、英</item>
+        <item>亨利—男青、英</item>
+        <item>玛丽—女青、英</item>
+        <item>小研—女青、中英、普通话</item>
+        <item>小琪—女青、中英、普通话</item>
+        <item>小峰—男青、中英、普通话</item>
+        <item>小梅—女青、中英、粤语</item>
+        <item>小莉—女青、中英、台湾普通话</item>
+        <item>小蓉—女青、中、四川话</item>
+        <item>小芸—女青、中、东北话</item>
+        <item>小坤—男青、中、河南话</item>
+        <item>小强—男青、中、湖南话</item>
+        <item>小莹—女青、中、陕西话</item>
+        <item>小新—男童、中、普通话</item>
+        <item>楠楠—女童、中、普通话</item>
+        <item>老孙—男老、中、普通话</item>
+    </string-array>
+
+    <string-array name="perpon_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+    </string-array>
+    <string name="init_xunfei_fail2">初始化语音失败</string>
+
+    <string name="play_text">播放</string>
+    <string name="replay_text">重播</string>
+    <string name="play_pause">暂停播放</string>
+    <string name="play_continue">继续播放</string>
+    <string name="play_complete">播放完成</string>
+    <string name="pause_text">暂停</string>
+    <string name="play_start">开始播放</string>
+    <string formatted="false" name="tts_toast_format">缓冲进度为%d%%，播放进度为%d%%</string>
+    <string name="xunfei_app_id">5ae1828b</string>
+    <string name="init_xunfei_fail3">语音合成失败</string>
+    <string name="init_xunfei_fail">初始化讯飞语音插件失败</string>
+    <string name="submit">提交</string>
+    <string name="show_correct">查看</string>
+    <string name="continue_text">继续</string>
+    <string name="reblank">重填</string>
 </resources>

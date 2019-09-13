@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import com.example.shijie.R;
 import com.example.shijie.adapter.RecommenListAdapter;
 import com.example.shijie.base.BaseFragment;
 import com.example.shijie.beans.Poetry;
-import com.example.shijie.interfaces.BaseView;
 import com.example.shijie.interfaces.IRecommendViewCallback;
 import com.example.shijie.presenters.AlbumDetailPresenter;
 import com.example.shijie.presenters.RecommendPresenter;
@@ -49,8 +49,6 @@ public class RecommendFragment extends BaseFragment implements IRecommendViewCal
         };
 
         //RecyclerVIew 使用
-
-
 
         // 数据
         //getRecommandData();
@@ -216,15 +214,16 @@ public class RecommendFragment extends BaseFragment implements IRecommendViewCal
 
     @Override
     public void onItemClick(int postion, Poetry album) {
-
+        Bundle bundle = new Bundle();
+        bundle.putString("p_id",album.getObjectId());
+        Log.d("li", "onItemClick:  传数据bundle 检查");
+        Log.d("li", "onItemClick:getObjectId  "+album.getObjectId());
+        bundle.putInt("from",1);
         AlbumDetailPresenter.getInstance().setTargetAlbum(album);
-
         // item  被电 跳转到详情界面
         Intent intent = new Intent(getContext(), DetailActivity.class);
+        intent.putExtra("bundle",bundle);
         startActivity(intent);
-
-
-
     }
 
 

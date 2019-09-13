@@ -6,10 +6,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+
 import com.example.shijie.adapter.IndicatorAdapter;
 import com.example.shijie.adapter.MainContentAdapter;
 import com.example.shijie.base.Constants;
+import com.example.shijie.beans.Config;
 import com.example.shijie.utils.LogUtil;
+import com.iflytek.cloud.SpeechUtility;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -21,6 +25,9 @@ import java.util.List;
 import java.util.Map;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,11 +39,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bmob.initialize(this, Constants.BMOB_SDK_KEY);
+
+//        Log.d("li", "onCreate:  Config.getInstance().user"+ Config.getInstance().user.getObjectId());
+
+
+        SpeechUtility.createUtility(this, "appid=" + getString(R.string.xunfei_app_id));
+        Log.d("xiang", " main onCreate: 初始化讯飞 ");
         setContentView(R.layout.activity_main);
         initView();
         initEvent();
         inf();
+        login("zj","00000000");
 
+    }
+    private void login(String username, String password) {
+        BmobUser user = new BmobUser();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.login(new SaveListener<BmobUser>() {
+            @Override
+            public void done(BmobUser bmobUser, BmobException e) {
+                if (e == null && bmobUser != null) {
+                    Config.getInstance().user = bmobUser;
+
+                } else {
+
+                }
+            }
+        });
     }
 
     private void inf() {
