@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.shijie.FlyingOrderKeyWordActivity;
 import com.example.shijie.R;
 import com.example.shijie.TianKongActivity;
 import com.example.shijie.base.BaseFragment;
@@ -32,6 +33,13 @@ public class SubscriptionFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), chuanguanActivity.class);
+                startActivity(intent);
+            }
+        });
+        fei_hua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), FlyingOrderKeyWordActivity.class);
                 startActivity(intent);
             }
         });

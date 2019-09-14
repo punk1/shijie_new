@@ -81,4 +81,127 @@
     <string name="show_correct">查看</string>
     <string name="continue_text">继续</string>
     <string name="reblank">重填</string>
+    <string name="input_keyword_text">请输入令牌</string>
+    <string name="sure_text">确定</string>
+    <string name="set_keyword">设置令牌</string>
+    <string-array name="keywords">
+        <item>日</item>
+        <item>月</item>
+        <item>水</item>
+        <item>火</item>
+        <item>风</item>
+        <item>云</item>
+        <item>阴</item>
+        <item>阳</item>
+        <item>天</item>
+        <item>地</item>
+        <item>人</item>
+        <item>山</item>
+        <item>花</item>
+        <item>酒</item>
+        <item>夜</item>
+        <item>梦</item>
+        <item>笑</item>
+        <item>醉</item>
+        <item>春</item>
+        <item>柳</item>
+        <item>秋</item>
+        <item>雨</item>
+        <item>雪</item>
+        <item>梅</item>
+        <item>有</item>
+        <item>无</item>
+        <item>空</item>
+        <item>一</item>
+        <item>千</item>
+        <item>万</item>
+        <item>青</item>
+        <item>红</item>
+        <item>绿</item>
+        <item>黄</item>
+        <item>白</item>
+        <item>明</item>
+        <item>长</item>
+        <item>声</item>
+        <item>烟</item>
+        <item>马</item>
+        <item>草</item>
+        <item>树</item>
+        <item>国</item>
+        <item>城</item>
+        <item>村</item>
+        <item>乡</item>
+        <item>家</item>
+        <item>楼</item>
+        <item>东</item>
+        <item>西</item>
+        <item>上</item>
+        <item>下</item>
+        <item>高</item>
+        <item>低</item>
+        <item>前</item>
+        <item>后</item>
+        <item>中</item>
+        <item>处</item>
+        <item>尽</item>
+        <item>行</item>
+        <item>看</item>
+        <item>望</item>
+        <item>见</item>
+        <item>闻</item>
+        <item>知</item>
+        <item>问</item>
+        <item>起</item>
+        <item>飞</item>
+        <item>来</item>
+        <item>去</item>
+        <item>到</item>
+        <item>生</item>
+        <item>此</item>
+        <item>又</item>
+        <item>相</item>
+        <item>向</item>
+        <item>我</item>
+        <item>歌</item>
+        <item>情</item>
+        <item>寒</item>
+        <item>江</item>
+        <item>孤</item>
+        <item>晚</item>
+        <item>时</item>
+        <item>晓</item>
+        <item>新</item>
+        <item>子</item>
+        <item>桃花</item>
+        <item>梨花</item>
+        <item>菊花</item>
+        <item>花开</item>
+        <item>春风</item>
+        <item>东风</item>
+        <item>西风</item>
+        <item>明月</item>
+        <item>青天</item>
+        <item>青山</item>
+        <item>百日</item>
+        <item>山河</item>
+        <item>桃李</item>
+        <item>天涯</item>
+        <item>相逢</item>
+        <item>人家</item>
+        <item>黄昏</item>
+        <item>不知</item>
+        <item>风雨</item>
+        <item>长安</item>
+        <item>扬州</item>
+        <item>洛阳</item>
+        <item>西湖</item>
+    </string-array>
+    <string name="vs">VS</string>
+    <string name="round_text">第%1$d回合</string>
+    <string name="null_poetry">——数据库中未查询到该数据</string>
+    <string name="chongfu_text">——已重复</string>
+    <string name="flying_order_success_half">匹配不完整</string>
+    <string name="flying_order_no_match">诗句不匹配</string>
+    <string name="flying_order_no_poetry">未查询到该诗句</string>
+    <string name="flying_order_reinput">已重复</string>
 </resources>

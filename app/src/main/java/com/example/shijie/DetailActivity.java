@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shijie.beans.Config;
+import com.example.shijie.beans.FlyiingOrderBean;
 import com.example.shijie.beans.Poetry;
 import com.example.shijie.beans.PoetryHistory;
 import com.example.shijie.interfaces.AlbumDetailViewCallBack;
@@ -46,6 +47,7 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
     private AlbumDetailPresenter mAlbumDetailPresenter;
     private SpeechSynthesizer mTts;
     private String p_id;
+    private String pp_id;//  飞花令的 记录
     private int from;//0是从历史记录过来， 1是从诗词背诵列表进来  2是从搜索进来   3 从飞花令列表进入
     // 缓冲进度
     private int mPercentForBuffering = 0;
@@ -205,22 +207,25 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
         if (intent != null) {
             Log.d("li", "initViewData:第二步 ");
             Bundle extras = intent.getBundleExtra("bundle");
+            Bundle eextras = intent.getBundleExtra("bbundle");
+            if (eextras!=null){
+                pp_id = eextras.getString("ll");
+                p_id =pp_id;
+                initData();
+            }
             if (extras != null) {
                 p_id = extras.getString("p_id");
+
+                Log.d("you", "initViewData: "+pp_id);
                 from = extras.getInt("from");
                 Log.d("xiang", "initViewData: from "+from);
-//                FlyiingOrderBean poety = (FlyiingOrderBean) extras.getSerializable("poety");
-                if (from == 3) {
-//                    if (poety != null) {
-//                        Poetry poetry = poety.getPoetry();
-//                        if (poetry != null) {
-//                            loadSuc(poetry);
-//                        }else {
-//                            initErrorView(poety);
-//                        }
-//                    }else{
-//                        initErrorView(poety);
+                FlyiingOrderBean poety = (FlyiingOrderBean) extras.getSerializable("poety");
+            if (from == 3) {
+//                    if (pp_id != null) {
+//                        p_id = pp_id;
+//                        initData();
 //                    }
+
                 } else {
                     initData();
                 }

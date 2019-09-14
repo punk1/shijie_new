@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/normal_bg">
+    <include layout="@layout/base_toolbar"/>
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="60dp"
+            android:layout_height="37dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/submit"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/submit_poetry_bg"
+            android:textColor="@color/white"/>
+        <ImageView
+            android:id="@+id/iv_record"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/iv_record"
+            android:visibility="visible"
+            android:layout_centerVertical="true"/>
+        <EditText
+            android:id="@+id/et_input_poetry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/btn_submit"
+            android:layout_toRightOf="@+id/iv_record"
+            android:gravity="center_vertical"/>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/base_app_bar"
+        android:layout_above="@+id/rl_bottom"/>
+</RelativeLayout>

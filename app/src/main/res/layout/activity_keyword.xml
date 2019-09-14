@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/normal_bg">
+    <include layout="@layout/base_toolbar"/>
+    <EditText
+        android:id="@+id/et_input_keyword"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/input_keyword_bg"
+        android:hint="@string/input_keyword_text"
+        android:gravity="center"
+        android:maxLength="2"
+        android:layout_below="@+id/base_app_bar"/>
+    <Button
+        android:id="@+id/btn_sure"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:text="@string/sure_text"
+        android:background="@drawable/keyword_btn_bg"/>
+    <GridView
+        android:id="@+id/gv_keyword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:columnWidth="10dp"
+        android:numColumns="5"
+        android:layout_above="@+id/btn_sure"
+        android:layout_below="@+id/et_input_keyword"/>
+
+
+</RelativeLayout>

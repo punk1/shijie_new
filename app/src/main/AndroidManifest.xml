@@ -42,6 +42,8 @@
         <activity android:name=".PlaySettingActivity"/>
         <activity android:name=".TianKongActivity"/>
         <activity android:name=".chuanguanActivity"/>
+        <activity android:name=".FlyingOrderKeyWordActivity"/>
+        <activity android:name=".FlyingOrderActivity"/>
     </application>
 
 

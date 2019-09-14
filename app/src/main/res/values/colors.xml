@@ -13,4 +13,6 @@
     <color name="gray_light">#cccccc</color>
     <color name="red">#ff0000</color>
     <color name="theme_blue_light">#467b96</color>
+    <color name="green">#13b5b1</color>
+    <string name="flying_order_success">匹配成功</string>
 </resources>
