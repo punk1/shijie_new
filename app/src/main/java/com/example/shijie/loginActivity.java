@@ -91,6 +91,7 @@ public class loginActivity extends AppCompatActivity {
                     Config.getInstance().user = bmobUser;
                     loadSuccess();
                 }else{
+                    CustomProgressDialog.stopLoading();
                     Toast.makeText(loginActivity.this,"登录失败",Toast.LENGTH_SHORT);
                 }
             }
@@ -100,6 +101,7 @@ public class loginActivity extends AppCompatActivity {
     }
 
     private void loadSuccess() {
+        CustomProgressDialog.stopLoading();
         //登录成功后保存账号
         SPUtil.setParam(this,"username",et_user_name.getText().toString());
         //登录成功后保存是否开启了记住密码

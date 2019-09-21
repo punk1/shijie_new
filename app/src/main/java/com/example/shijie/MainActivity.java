@@ -137,24 +137,24 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initEvent();
         inf();
-        login("zj","00000000");
+//        login("zj","00000000");
     }
-    private void login(String username, String password) {
-        BmobUser user = new BmobUser();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.login(new SaveListener<BmobUser>() {
-            @Override
-            public void done(BmobUser bmobUser, BmobException e) {
-                if (e == null && bmobUser != null) {
-                    Log.d(TAG, "done:登录 ");
-                    Config.getInstance().user = bmobUser;
-                } else {
-
-                }
-            }
-        });
-    }
+//    private void login(String username, String password) {
+//        BmobUser user = new BmobUser();
+//        user.setUsername(username);
+//        user.setPassword(password);
+//        user.login(new SaveListener<BmobUser>() {
+//            @Override
+//            public void done(BmobUser bmobUser, BmobException e) {
+//                if (e == null && bmobUser != null) {
+//                    Log.d(TAG, "done:登录 ");
+//                    Config.getInstance().user = bmobUser;
+//                } else {
+//
+//                }
+//            }
+//        });
+//    }
 
     private void inf() {
         LogUtil.d(TAG,"close");
