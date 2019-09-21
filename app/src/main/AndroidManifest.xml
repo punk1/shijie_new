@@ -31,19 +31,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
        >
-        <activity android:name=".MainActivity">
+        <activity android:name=".loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".DetailActivity"/>
         <activity android:name=".PlaySettingActivity"/>
         <activity android:name=".TianKongActivity"/>
         <activity android:name=".chuanguanActivity"/>
         <activity android:name=".FlyingOrderKeyWordActivity"/>
         <activity android:name=".FlyingOrderActivity"/>
+        <activity android:name=".RegistActivity"/>
     </application>
 
 

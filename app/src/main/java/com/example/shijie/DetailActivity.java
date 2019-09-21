@@ -354,8 +354,6 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
     };
 
 
-
-
     @Override
     public void onAlbumLoaded(Poetry album) {
         String pTitle = album.getP_name();
@@ -371,6 +369,7 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
                 .append("，")
                 .append(correctPoem).toString();
         String correctPoem2 = correctPoem.replaceAll("[，。、？！!,.?]", "\r\n");
+        correctPoem2 = correctPoem2.replaceAll("<br>","");
         Log.d("xiang", "onAlbumLoaded: album "+album.getP_author());
         tv_poem_title.setText(pTitle);
         tv_title.setText(pTitle);
@@ -380,7 +379,6 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
         tv_poem_content.setText(correctPoem2);
 
     }
-
     @Override
     public void onAlbumLoaded(PoetryHistory album) {
 

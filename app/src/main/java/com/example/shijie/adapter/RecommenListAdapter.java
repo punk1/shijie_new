@@ -85,7 +85,7 @@ public class RecommenListAdapter extends RecyclerView.Adapter<RecommenListAdapte
             title_tv.setText(album.getP_name());
             album_description.setText(album.getP_content());
             album_author.setText(album.getP_author());
-            album_dynasty.setText(album.getP_type());
+            album_dynasty.setText(album.getP_source());
 
 
         }
