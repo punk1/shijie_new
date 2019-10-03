@@ -76,6 +76,7 @@ public class chuanguanActivity extends AppCompatActivity implements ViewPager.On
 
         BmobQuery<Poetry> query=new BmobQuery<Poetry>();
 
+
         query.findObjects(new FindListener<Poetry>() {
             @Override
             public void done(List<Poetry> list, BmobException e) {

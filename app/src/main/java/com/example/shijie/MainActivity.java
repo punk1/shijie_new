@@ -1,5 +1,6 @@
 package com.example.shijie;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 
 import android.support.v4.app.FragmentManager;
@@ -7,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.shijie.adapter.IndicatorAdapter;
 import com.example.shijie.adapter.MainContentAdapter;
@@ -16,7 +19,7 @@ import com.example.shijie.beans.People;
 import com.example.shijie.beans.Poetry;
 import com.example.shijie.beans.PoetryHistory;
 import com.example.shijie.utils.LogUtil;
-import com.google.gson.Gson;
+
 import com.iflytek.cloud.SpeechUtility;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private static  final  String TAG = "MainActivity";
     private IndicatorAdapter mIndicatoradapter;
     private ViewPager mcontentPager;
+    private ImageView search_btn;
 
 //    @Override
 //    protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,26 +65,44 @@ public class MainActivity extends AppCompatActivity {
 //        super.onCreate(savedInstanceState);
 //        Bmob.initialize(this, Constants.shi_BMOB_SDK_KEY);
 //        setContentView(R.layout.shi);
-//        for (int i = 1001; i <=1100; i++) {
-//            readTextFromSDcard(i);
-//            laod(resultString);
+//        for (int i = 3401; i <=3600; i++) {
+//
+//            synchronized (MainActivity.class){
+//                readTextFromSDcard(i);
+//                laod(resultString);
+//            }
+//
+//
 //        }
 //
 //    }
 //    private void laod(String jsondata){
 //        try {
 //            JSONObject jsonObject = new JSONObject(jsondata);
-//            String con = jsonObject.getString("content");
-//            String title  = jsonObject.getString("name");
+//            String con=null;
+//            con= jsonObject.getString("content");
+////            String fanyi=null;
+////            fanyi= jsonObject.getString("fanyi");
+//            String title =null;
+//            title= jsonObject.getString("name");
+////            String shan =null;
+////            shan= jsonObject.getString("shangxi");
 //            JSONObject jsonObject1 = jsonObject.getJSONObject("poet");
-//            String name =jsonObject1.getString("name");
-//            Log.d("tui", "laod: "+name);
-//            String dynasty = jsonObject.getString("dynasty");
+//            String name =null;
+//            name=jsonObject1.getString("name");
+////            String author_desc=null;
+////            author_desc=jsonObject1.getString("desc");
+////            Log.d("tui", "laod: "+name);
+//            String dynasty =null;
+//            dynasty= jsonObject.getString("dynasty");
 //            final Poetry poetry = new Poetry();
 //            poetry.setP_author(name);
 //            poetry.setP_name(title);
 //            poetry.setP_content(con);
 //            poetry.setP_source(dynasty);
+////            poetry.setAuthor_jianjie(author_desc);
+////            poetry.setShangxi(shan);
+////            poetry.setFanyi(fanyi);
 //            poetry.update(new UpdateListener() {
 //                @Override
 //                public void done(BmobException e) {
@@ -88,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 //                        poetry.save(new SaveListener<String>() {
 //                            @Override
 //                            public void done(String s, BmobException e) {
-//                                Log.d("tui", "done: 插入成功");
+////                                Log.d("tui", "done: 插入成功");
 //                            }
 //                        });
 //                    }
@@ -115,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 //            inputStreamReader.close();
 //            bufferedReader.close();
 //            resultString = stringBuilder.toString();
-//            Log.i("TAG", stringBuilder.toString());
+////            Log.i("TAG", stringBuilder.toString());
 //        } catch (UnsupportedEncodingException e) {
 //            e.printStackTrace();
 //        } catch (IOException e) {
@@ -129,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Bmob.initialize(this, Constants.shi_BMOB_SDK_KEY);
+        Bmob.initialize(this, Constants.shi_BMOB_SDK_KEY);
 //        Log.d("li", "onCreate:  Config.getInstance().user"+ Config.getInstance().user.getObjectId());
         SpeechUtility.createUtility(this, "appid=" + getString(R.string.xunfei_app_id));
         Log.d("xiang", " main onCreate: 初始化讯飞 ");
@@ -172,6 +194,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,searchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
     private void initView() {
@@ -197,6 +229,8 @@ public class MainActivity extends AppCompatActivity {
         //把ViewPager 于 指示器 绑定到一起
         magicIndicator.setNavigator(commonNavigator);
         ViewPagerHelper.bind(magicIndicator, mcontentPager);
+
+        search_btn = findViewById(R.id.search);
 
     }
 

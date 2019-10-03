@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.shijie.base.Constants;
 import com.example.shijie.beans.Config;
+import com.example.shijie.beans.DynamicItem;
 import com.example.shijie.beans.FlyiingOrderBean;
 import com.example.shijie.beans.Poetry;
 import com.example.shijie.beans.PoetryHistory;
@@ -23,10 +25,12 @@ import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.SynthesizerListener;
 
 import java.util.List;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.QueryListener;
@@ -61,6 +65,9 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Bmob.initialize(this, Constants.shi_BMOB_SDK_KEY);
+        SpeechUtility.createUtility(this, "appid=" + getString(R.string.xunfei_app_id));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
         initView();
@@ -153,36 +160,53 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
         mTts.setParameter(SpeechConstant.STREAM_TYPE, mSharedPreferences.getString("stream_preference", "3"));
     }
     private void saveHistory(Poetry mPoemBean) {
-        Log.d("li", "initViewData:第五步 ");
-        final PoetryHistory history = new PoetryHistory();
-        history.setP_id(mPoemBean.getObjectId());
-        Log.d("li", "initViewData: mPoemBean.getObjectId()"+ mPoemBean.getObjectId());
-        history.setP_author(mPoemBean.getP_author());
-        history.setP_title(mPoemBean.getP_name());
-        Log.d("li", "initViewData:第六步 ");
-        history.setU_id(Config.getInstance().user.getObjectId());
-        Log.d("li", "initViewData:第五步 "+Config.getInstance().user.getObjectId());
-        history.update(new UpdateListener() {
-            @Override
-            public void done(BmobException e) {
-                if (e == null) {
-                    Log.d("lishi", "done: 更新历史成功");
-                } else {
-                    Log.d("lishi", "done: 更新历史失败");
-                    history.save(new SaveListener<String>() {
-                        @Override
-                        public void done(String s, BmobException e) {
-                            if (e == null) {
-                                Log.d("lishi", "done: 保存历史成功");
-                            } else {
-                                Log.d("lishi", "done: 保存历史失败");
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    }
+
+           Log.d("li", "initViewData:第五步 ");
+           final PoetryHistory history = new PoetryHistory();
+           // shan 1
+           final DynamicItem dynamicItem = new DynamicItem();
+           history.setP_id(mPoemBean.getObjectId());
+           //  shan 2
+           dynamicItem.setAuthor_id(Config.getInstance().user.getObjectId());
+           Log.d("li", "initViewData: mPoemBean.getObjectId()"+ mPoemBean.getObjectId());
+           history.setP_author(mPoemBean.getP_author());
+
+           //  sahn 3
+           dynamicItem.setTitle(mPoemBean.getP_name());
+           dynamicItem.setQ_content(mPoemBean.getP_content());
+           dynamicItem.setZhushi("瞎几把写吧");
+           history.setP_title(mPoemBean.getP_name());
+           Log.d("li", "initViewData:第六步 ");
+           history.setU_id(Config.getInstance().user.getObjectId());
+           Log.d("li", "initViewData:第五步 "+Config.getInstance().user.getObjectId());
+           dynamicItem.save(new SaveListener<String>() {
+               @Override
+               public void done(String s, BmobException e) {
+
+               }
+           });
+           history.update(new UpdateListener() {
+               @Override
+               public void done(BmobException e) {
+                   if (e == null) {
+                       Log.d("lishi", "done: 更新历史成功");
+                   } else {
+                       Log.d("lishi", "done: 更新历史失败");
+                       history.save(new SaveListener<String>() {
+                           @Override
+                           public void done(String s, BmobException e) {
+                               if (e == null) {
+                                   Log.d("lishi", "done: 保存历史成功");
+                               } else {
+                                   Log.d("lishi", "done: 保存历史失败");
+                               }
+                           }
+                       });
+                   }
+               }
+           });
+       }
+
 
     private void initXunfei() {
         // 初始化合成对象
@@ -243,6 +267,7 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
                     Log.d("li", "initViewData:第四步 ");
                     loadSuc(poetry);
                 } else {
+                    Log.d("bug", "done: p-id"+p_id);
                     Log.d("li", "done: "+e);
 
                 }
@@ -255,8 +280,10 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
            Log.d("xiang", "jiazai");
             Log.d("xiang", "loadSuc: 保存记录");
             if(from!=0){
+                Log.d("bug", "loadSuc: zou 1");
                 saveHistory(poetry);
             }else {
+                Log.d("bug", "loadSuc: zou 2");
                 onAlbumLoaded(poetry);
             }
             

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@drawable/shape_item_quan_bg"
+    >
+    <LinearLayout
+        android:id="@+id/author_quan"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        >
+        <com.example.shijie.views.RoundRectImageView
+            android:id="@+id/author_photo_quan"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/image_1016"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/author_title_quan"
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="创作者"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/poetry_quan"
+        android:layout_width="390dp"
+        android:layout_height="140dp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/author_quan"
+        android:background="@drawable/shape_quan_bg"
+        >
+        <TextView
+            android:id="@+id/poetry_title_quan"
+            android:gravity="center"
+            android:layout_width="390dp"
+            android:layout_height="40dp"
+            android:text="啊啊啊啊"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/poetry_content_quan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="水水水水水水水水水水水水试试吧反对法发发发打发的说法的法沙发沙发 "
+            android:lineSpacingMultiplier="1.5"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerHorizontal="true"
+
+
+            />
+        <TextView
+            android:background="@drawable/shape_chuangzuo_bg"
+            android:id="@+id/poetry_chuagnzuo_quan"
+            android:gravity="center_vertical"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:text="创作说明"
+            android:textSize="12sp"
+            android:maxLines="1"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

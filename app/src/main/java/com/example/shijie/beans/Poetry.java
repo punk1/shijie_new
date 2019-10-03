@@ -18,6 +18,37 @@ public class Poetry extends BmobObject {
     private String p_author;
     private Integer id;
 
+    private String Author_jianjie;
+
+    public String getAuthor_jianjie() {
+        return Author_jianjie;
+    }
+
+    public void setAuthor_jianjie(String author_jianjie) {
+        Author_jianjie = author_jianjie;
+    }
+
+    private String Fanyi;
+
+    public String getFanyi() {
+        return Fanyi;
+    }
+
+    public void setFanyi(String fanyi) {
+        Fanyi = fanyi;
+    }
+
+    private String Shangxi;
+
+
+    public void setShangxi(String shangxi) {
+        Shangxi = shangxi;
+    }
+
+    public String getShangxi() {
+        return Shangxi;
+    }
+
     public String getTableName() {
         return "Poetry";
     }

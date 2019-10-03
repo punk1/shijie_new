@@ -3,6 +3,7 @@
     package="com.example.shijie">
     <!--允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--获取wifi网络状态的信息 -->
@@ -31,6 +32,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
        >
+
         <activity android:name=".loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,6 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity"/>
         <activity android:name=".DetailActivity"/>
         <activity android:name=".PlaySettingActivity"/>
@@ -46,6 +49,7 @@
         <activity android:name=".FlyingOrderKeyWordActivity"/>
         <activity android:name=".FlyingOrderActivity"/>
         <activity android:name=".RegistActivity"/>
+        <activity android:name=".searchActivity"/>
     </application>
 
 

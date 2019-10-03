@@ -35,8 +35,10 @@ public class loginActivity extends AppCompatActivity {
     private AppCompatCheckBox cbRemember;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Bmob.initialize(this, Constants.shi_BMOB_SDK_KEY);
+
         super.onCreate(savedInstanceState);
+        Bmob.initialize(this, Constants.shi_BMOB_SDK_KEY);
+
         setContentView(R.layout.activity_login);
         initView();
         initViewdata();
