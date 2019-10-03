@@ -4,13 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
+
    >
+
+    <include layout="@layout/bar_quan"/>
+
     <android.support.v7.widget.RecyclerView
-        android:background="#F4F4F4"
         android:id="@+id/quan_list"
         android:layout_width="match_parent"
-        android:overScrollMode="never"
         android:layout_height="match_parent"
-        ></android.support.v7.widget.RecyclerView>
+        android:background="#F4F4F4"
+        android:overScrollMode="never"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

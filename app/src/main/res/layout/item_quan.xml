@@ -5,6 +5,7 @@
     android:layout_height="250dp"
     android:background="@drawable/shape_item_quan_bg"
     >
+
     <LinearLayout
         android:id="@+id/author_quan"
         android:layout_marginTop="30dp"
@@ -48,24 +49,24 @@
         <TextView
             android:id="@+id/poetry_title_quan"
             android:gravity="center"
+            android:layout_centerHorizontal="true"
             android:layout_width="390dp"
             android:layout_height="40dp"
             android:text="啊啊啊啊"
             android:textSize="15sp"/>
         <TextView
             android:id="@+id/poetry_content_quan"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:text="水水水水水水水水水水水水试试吧反对法发发发打发的说法的法沙发沙发 "
+            android:text="疏钟何处来，度竹兼拂水
+    渐逐微风声，依依犹在耳"
             android:lineSpacingMultiplier="1.5"
             android:textSize="18sp"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_centerHorizontal="true"
-
-
             />
         <TextView
             android:background="@drawable/shape_chuangzuo_bg"

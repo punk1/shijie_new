@@ -2,6 +2,8 @@ package com.example.shijie.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,9 +77,14 @@ public class QuanlistAdapter extends RecyclerView.Adapter<QuanlistAdapter.Inneho
 
             author_title_quan.setText(dynamicItem.getAuthor_name());
             poetry_title_quan.setText(dynamicItem.getTitle());
+
             String content = dynamicItem.getQ_content();
-//            content  = content.replaceAll();
-            poetry_content_quan.setText(content);
+            content = content.replaceAll("<br>","");
+            String content2 = content.replaceAll("。","\r\n");
+            Log.d("quan", "setData: "+content2);
+
+            poetry_content_quan.setText(content2);
+
             poetry_chuagnzuo_quan.setText("创作说明:"+dynamicItem.getZhushi());
 
 
