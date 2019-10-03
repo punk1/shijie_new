@@ -49,7 +49,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
-class FlyingOrderActivity extends AppCompatActivity {
+public class FlyingOrderActivity extends AppCompatActivity {
 
     private  ImageView ivBack;
     private TextView tvTitle;

@@ -20,8 +20,6 @@ public abstract class BaseFragment extends Fragment {
         return rootView;
     }
 
-
-
     protected abstract View onSubViewLoader(LayoutInflater layoutInflater, ViewGroup container);
 
 }

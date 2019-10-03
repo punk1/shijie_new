@@ -80,6 +80,8 @@ public class QuanlistAdapter extends RecyclerView.Adapter<QuanlistAdapter.Inneho
 
             String content = dynamicItem.getQ_content();
             content = content.replaceAll("<br>","");
+            content =  content.replace('\n',' ');
+            content = content.trim();
             String content2 = content.replaceAll("。","\r\n");
             Log.d("quan", "setData: "+content2);
 

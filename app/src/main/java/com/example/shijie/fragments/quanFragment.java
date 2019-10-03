@@ -1,5 +1,6 @@
 package com.example.shijie.fragments;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.shijie.R;
 import com.example.shijie.adapter.QuanlistAdapter;
@@ -20,6 +23,7 @@ import com.example.shijie.beans.DynamicItem;
 import com.example.shijie.interfaces.IquanPresenter;
 import com.example.shijie.interfaces.IquanViewCallback;
 import com.example.shijie.views.UIloader;
+import com.example.shijie.writepoetry;
 
 import net.lucode.hackware.magicindicator.buildins.UIUtil;
 
@@ -33,8 +37,9 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
     private RecyclerView mrecyclerview;
     private QuanlistAdapter quanlistAdapter;
     private IquanPresenter iquanPresenter;
-
-
+    private ImageView quan_back;
+    private TextView write_btn;
+    private Boolean misloadMore;
     @Override
     protected View onSubViewLoader(LayoutInflater layoutInflater, ViewGroup container) {
        rootView = layoutInflater.inflate(R.layout.quan,container,false);
@@ -57,12 +62,49 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
         quanlistAdapter = new QuanlistAdapter();
         mrecyclerview.setAdapter(quanlistAdapter);
 
+        mrecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (iquanPresenter != null){
+
+                    iquanPresenter.loadMore();
+                    misloadMore = false;
+
+
+                }
+            }
+        });
+
         iquanPresenter = com.example.shijie.presenters.IquanPresenter.getInstance();
         iquanPresenter.registerViewCallback(this);
 
         iquanPresenter.getRecommendList();
 
        return  rootView;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initView();
+    }
+
+    public void  initView(){
+
+        quan_back  = (rootView).findViewById(R.id.quan_back);
+        write_btn = (rootView).findViewById(R.id.write_btn);
+        quan_back.setVisibility(View.INVISIBLE);
+        write_btn.setVisibility(View.VISIBLE);
+        write_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), writepoetry.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
 
@@ -76,11 +118,13 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
         Log.d("quan", "onRecommendListload: 设置数据");
         quanlistAdapter.setData(result);
 
-
     }
 
     @Override
     public void onLoaderMore(List<DynamicItem> result) {
+        if (iquanPresenter != null){
+            iquanPresenter.loadMore();
+        }
 
     }
 

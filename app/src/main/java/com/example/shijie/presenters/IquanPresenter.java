@@ -45,6 +45,7 @@ public class IquanPresenter implements com.example.shijie.interfaces.IquanPresen
 
     private void doLoaed(final boolean isLoaderMore){
         BmobQuery<DynamicItem> query=new BmobQuery<DynamicItem>();
+        query.order("-updatedAt");
         query.setLimit(limitCount);
         if (page != 0) {
             query.setSkip(limitCount * page);
@@ -105,6 +106,8 @@ public class IquanPresenter implements com.example.shijie.interfaces.IquanPresen
 
     @Override
     public void pullRefreshMore() {
+        page = 0;
+        doLoaed(false);
 
     }
 

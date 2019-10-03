@@ -163,28 +163,28 @@ public class DetailActivity extends AppCompatActivity implements  AlbumDetailVie
 
            Log.d("li", "initViewData:第五步 ");
            final PoetryHistory history = new PoetryHistory();
-           // shan 1
-           final DynamicItem dynamicItem = new DynamicItem();
+//           // shan 1
+//           final DynamicItem dynamicItem = new DynamicItem();
            history.setP_id(mPoemBean.getObjectId());
-           //  shan 2
-           dynamicItem.setAuthor_id(Config.getInstance().user.getObjectId());
+//           //  shan 2
+//           dynamicItem.setAuthor_id(Config.getInstance().user.getObjectId());
            Log.d("li", "initViewData: mPoemBean.getObjectId()"+ mPoemBean.getObjectId());
            history.setP_author(mPoemBean.getP_author());
 
-           //  sahn 3
-           dynamicItem.setTitle(mPoemBean.getP_name());
-           dynamicItem.setQ_content(mPoemBean.getP_content());
-           dynamicItem.setZhushi("瞎几把写吧");
+//           //  sahn 3
+//           dynamicItem.setTitle(mPoemBean.getP_name());
+//           dynamicItem.setQ_content(mPoemBean.getP_content());
+//           dynamicItem.setZhushi("瞎几把写吧");
            history.setP_title(mPoemBean.getP_name());
            Log.d("li", "initViewData:第六步 ");
            history.setU_id(Config.getInstance().user.getObjectId());
            Log.d("li", "initViewData:第五步 "+Config.getInstance().user.getObjectId());
-           dynamicItem.save(new SaveListener<String>() {
-               @Override
-               public void done(String s, BmobException e) {
-
-               }
-           });
+//           dynamicItem.save(new SaveListener<String>() {
+//               @Override
+//               public void done(String s, BmobException e) {
+//
+//               }
+//           });
            history.update(new UpdateListener() {
                @Override
                public void done(BmobException e) {
