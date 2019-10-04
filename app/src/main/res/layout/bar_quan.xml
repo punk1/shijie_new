@@ -14,8 +14,8 @@
            android:layout_gravity="center"
 
            android:layout_marginLeft="5dp"
-           android:layout_width="30dp"
-           android:layout_height="30dp"
+           android:layout_width="20dp"
+           android:layout_height="20dp"
            android:src="@drawable/iv_back"
            android:layout_marginRight="10dp"
            android:visibility="gone"/>

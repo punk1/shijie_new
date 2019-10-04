@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.example.shijie.beans.Config;
 import com.example.shijie.beans.DynamicItem;
 import com.example.shijie.presenters.IquanPresenter;
+import com.example.shijie.widget.CustomProgressDialog;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
@@ -25,6 +27,7 @@ public class writepoetry extends AppCompatActivity {
     private EditText write_title;
     private EditText write_content;
     private EditText write_zhushi;
+    private boolean iswrite = false;
 
     private String poetry_title= null;
     private String poetry_content = null;
@@ -63,11 +66,18 @@ public class writepoetry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                login();
+
                 poetry_title =write_title.getText().toString().trim();
                 poetry_content = write_content.getText().toString().trim();
                 poetry_zhushi = write_zhushi.getText().toString().trim();
                 authoir_name = Config.getInstance().user.getUsername() ;
                 u_id = Config.getInstance().user.getObjectId();
+
+                //隐藏键盘
+                InputMethodManager inputMethodManager = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(write_zhushi.getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+
 
                 dynamicItem.setTitle(poetry_title);
                 dynamicItem.setQ_content(poetry_content);
@@ -76,17 +86,32 @@ public class writepoetry extends AppCompatActivity {
                 dynamicItem.setAuthor_id(u_id);
 
 
+
                 dynamicItem.save(new SaveListener<String>() {
                     @Override
                     public void done(String s, BmobException e) {
-                        Toast.makeText(writepoetry.this,"发布成功",Toast.LENGTH_SHORT);
-                        IquanPresenter.getInstance().pullRefreshMore();
+                       if(e==null){
+                           IquanPresenter.getInstance().pullRefreshMore();
+                           CustomProgressDialog.stopLoading();
+                       }else{
+
+                       }
                     }
                 });
 
+
+
+
+
             }
+
+
         });
 
+    }
+
+    public void login(){
+        CustomProgressDialog.showLoading(this,"发布中",false);
     }
 
 

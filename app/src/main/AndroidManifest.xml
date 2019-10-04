@@ -51,6 +51,7 @@
         <activity android:name=".RegistActivity"/>
         <activity android:name=".searchActivity"/>
         <activity android:name=".writepoetry"/>
+        <activity android:name=".Detail_write_poetry"/>
     </application>
 
 

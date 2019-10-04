@@ -14,6 +14,14 @@ public class DynamicItem extends BmobObject {
     private String zhushi;
     private String author_id;
     private String author_name;
+    private Integer zan_id;
+    public Integer getZan_id() {
+        return zan_id;
+    }
+
+    public void setZan_id(Integer zan_id) {
+        this.zan_id = zan_id;
+    }
 
     public String getAuthor_name() {
         return author_name;

@@ -16,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.shijie.Detail_write_poetry;
 import com.example.shijie.R;
 import com.example.shijie.adapter.QuanlistAdapter;
 import com.example.shijie.base.BaseFragment;
@@ -60,6 +61,8 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
 
 
         quanlistAdapter = new QuanlistAdapter();
+
+        quanlistAdapter.setonquanItemClicklistener(this);
         mrecyclerview.setAdapter(quanlistAdapter);
 
         mrecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -110,6 +113,12 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
 
     @Override
     public void onItemClick(int postion, DynamicItem poe) {
+        Bundle bundle = new Bundle();
+        bundle.putString("objectid",poe.getObjectId());
+
+        Intent intent= new Intent(getContext(), Detail_write_poetry.class);
+        intent.putExtra("detail",bundle);
+        startActivity(intent);
 
     }
 
