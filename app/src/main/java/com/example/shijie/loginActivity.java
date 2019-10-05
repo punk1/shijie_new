@@ -114,7 +114,7 @@ public class loginActivity extends AppCompatActivity {
         }else{
             SPUtil.setParam(this,"password", "");
         }
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,MainActivity2.class);
         startActivity(intent);
         finish();
     }

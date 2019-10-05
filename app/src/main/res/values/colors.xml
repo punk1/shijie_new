@@ -16,4 +16,6 @@
     <color name="theme_blue_light">#467b96</color>
     <color name="green">#13b5b1</color>
     <string name="flying_order_success">匹配成功</string>
+    <color name="tab_light_color">#C5CAE9</color>
+    <color name="tab_color">#C8E6C9</color>
 </resources>
