@@ -12,11 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.shijie.MainActivity;
 import com.example.shijie.R;
 import com.example.shijie.adapter.IndicatorAdapter;
 import com.example.shijie.adapter.MainContentAdapter;
-import com.example.shijie.searchActivity;
+import com.example.shijie.activities.searchActivity;
 import com.example.shijie.utils.LogUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -33,11 +32,12 @@ public class OneFm  extends Fragment  {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragmet1,container,false);
-        initView();
-        initEvent();
-        inf();
-
+        if (rootView == null) {
+            rootView = inflater.inflate(R.layout.fragmet1, container, false);
+            initView();
+            initEvent();
+            inf();
+        }
         ViewGroup parent = (ViewGroup) rootView.getParent();
         if (parent != null) {
             parent.removeView(rootView);
@@ -85,8 +85,7 @@ public class OneFm  extends Fragment  {
     private void initView() {
 
         MagicIndicator magicIndicator= (MagicIndicator)rootView.findViewById(R.id.magic_indicator);
-        magicIndicator.setBackgroundColor(this.getResources().getColor(R.color.Main_color));
-
+        magicIndicator.setBackgroundColor(this.getResources().getColor(R.color.tuijian));
         //创建Indicator的适配器
 
         mIndicatoradapter = new IndicatorAdapter(getContext());

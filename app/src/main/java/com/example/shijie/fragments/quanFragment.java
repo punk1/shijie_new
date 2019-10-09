@@ -5,26 +5,23 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.shijie.Detail_write_poetry;
+import com.example.shijie.activities.Detail_write_poetry;
 import com.example.shijie.R;
 import com.example.shijie.adapter.QuanlistAdapter;
 import com.example.shijie.base.BaseFragment;
 import com.example.shijie.beans.DynamicItem;
 import com.example.shijie.interfaces.IquanPresenter;
 import com.example.shijie.interfaces.IquanViewCallback;
-import com.example.shijie.views.UIloader;
-import com.example.shijie.writepoetry;
+import com.example.shijie.activities.writepoetry;
 
 import net.lucode.hackware.magicindicator.buildins.UIUtil;
 
@@ -40,6 +37,9 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
     private IquanPresenter iquanPresenter;
     private ImageView quan_back;
     private TextView write_btn;
+
+    private TextView zan_text;
+
     private Boolean misloadMore;
     @Override
     protected View onSubViewLoader(LayoutInflater layoutInflater, ViewGroup container) {
@@ -52,8 +52,8 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
         mrecyclerview.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-                outRect.top = UIUtil.dip2px(view.getContext(),5);
-                outRect.bottom= UIUtil.dip2px(view.getContext(),5);
+                outRect.top = UIUtil.dip2px(view.getContext(),1);
+                outRect.bottom= UIUtil.dip2px(view.getContext(),1);
                 outRect.left = UIUtil.dip2px(view.getContext(),5);
                 outRect.right = UIUtil.dip2px(view.getContext(),5);
             }
@@ -107,6 +107,8 @@ public class quanFragment extends BaseFragment implements IquanViewCallback,Quan
 
             }
         });
+
+
 
     }
 

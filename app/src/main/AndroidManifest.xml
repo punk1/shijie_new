@@ -22,9 +22,12 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".base.BaseApplication"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,27 +36,31 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
        >
 
-        <activity android:name=".loginActivity">
+        <activity android:name=".activities.loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity2"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".DetailActivity"/>
-        <activity android:name=".PlaySettingActivity"/>
-        <activity android:name=".TianKongActivity"/>
-        <activity android:name=".chuanguanActivity"/>
-        <activity android:name=".FlyingOrderKeyWordActivity"/>
-        <activity android:name=".FlyingOrderActivity"/>
-        <activity android:name=".RegistActivity"/>
-        <activity android:name=".searchActivity"/>
-        <activity android:name=".writepoetry"/>
-        <activity android:name=".Detail_write_poetry"/>
+
+        <activity android:name=".activities.MainActivity2"/>
+        <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".activities.DetailActivity"/>
+        <activity android:name=".activities.PlaySettingActivity"/>
+        <activity android:name=".activities.TianKongActivity"/>
+        <activity android:name=".activities.chuanguanActivity"/>
+        <activity android:name=".activities.FlyingOrderKeyWordActivity"/>
+        <activity android:name=".activities.FlyingOrderActivity"/>
+        <activity android:name=".activities.RegistActivity"/>
+        <activity android:name=".activities.searchActivity"/>
+        <activity android:name=".activities.writepoetry"/>
+        <activity android:name=".activities.Detail_write_poetry"/>
+
+        <meta-data android:name="design_width" android:value="1080">
+        </meta-data>
+        <meta-data android:name="design_height" android:value="1920">
+        </meta-data>
     </application>
-
-
 
 </manifest>

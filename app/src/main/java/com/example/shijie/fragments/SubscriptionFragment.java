@@ -1,17 +1,16 @@
 package com.example.shijie.fragments;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.shijie.FlyingOrderKeyWordActivity;
+import com.example.shijie.activities.FlyingOrderKeyWordActivity;
 import com.example.shijie.R;
-import com.example.shijie.TianKongActivity;
+import com.example.shijie.activities.TianKongActivity;
 import com.example.shijie.base.BaseFragment;
-import com.example.shijie.chuanguanActivity;
+import com.example.shijie.activities.chuanguanActivity;
 
 
 public class SubscriptionFragment extends BaseFragment {

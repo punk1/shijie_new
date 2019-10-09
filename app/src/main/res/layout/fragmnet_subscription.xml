@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <ImageView
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@color/black"/>
-
-    <ImageView
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@color/white"/>
+    android:orientation="vertical"
+    android:background="@mipmap/back1">
 
     <ImageView
         android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@color/black_darker" />
+        android:layout_width="350px"
+        android:layout_height="444px"
+        android:layout_marginLeft="509px"
+        android:layout_marginTop="490px"
+        android:src="@mipmap/back2" />
 
+    <ImageView
+        android:id="@+id/button1"
+        android:layout_width="459px"
+        android:layout_height="448px"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="896px"
+        android:src="@mipmap/back4" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/button2"
+        android:layout_width="250px"
+        android:layout_height="301px"
+        android:layout_marginTop="1339px"
+        android:layout_marginLeft="489px"
+        android:src="@mipmap/back3" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

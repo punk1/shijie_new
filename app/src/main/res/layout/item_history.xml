@@ -2,35 +2,55 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="75dp"
+  android:elevation="10dp"
     android:background="@drawable/shape_album_item_bg">
         <TextView
             android:id="@+id/album_title_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_width="220dp"
+            android:layout_height="120dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
             android:lines="1"
-            android:ellipsize="end"
+            android:textColor="#BF360C"
+            android:maxEms="5"
             android:text="古诗题目古诗题目古诗题目"
-            android:textSize="13sp" />
+            android:textSize="120px" />
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="9dp"
+        android:layout_toRightOf="@+id/album_title_tv"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/album_author"
-            android:layout_below="@+id/album_title_tv"
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:paddingRight="10dp"
             android:text="作者"
-            android:textColor="#ff848484"
-            android:textSize="13sp"
-            android:paddingRight="10dp"/>
+            android:textColor="#cfb536"
+            android:textSize="72px" />
 
-    <TextView
-        android:id="@+id/album_date"
-        android:textSize="8sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/album_author"
-        android:layout_marginTop="5dp"/>
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@mipmap/dian" />
+
+        <TextView
+            android:id="@+id/album_date"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:text="朝代"
+            android:textColor="#cfb536"
+            android:textSize="72px" />
+
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>

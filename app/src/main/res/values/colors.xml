@@ -18,4 +18,5 @@
     <string name="flying_order_success">匹配成功</string>
     <color name="tab_light_color">#C5CAE9</color>
     <color name="tab_color">#C8E6C9</color>
+    <color name="tuijian">#c2c2c2</color>
 </resources>

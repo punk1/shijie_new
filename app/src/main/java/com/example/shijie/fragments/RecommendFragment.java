@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.example.shijie.DetailActivity;
+import com.example.shijie.activities.DetailActivity;
 import com.example.shijie.R;
 import com.example.shijie.adapter.RecommenListAdapter;
 import com.example.shijie.base.BaseFragment;
@@ -37,16 +37,16 @@ public class RecommendFragment extends BaseFragment implements IRecommendViewCal
     private View rootView;
     private boolean misloadmore = false;
 
-
     @Override
     protected View onSubViewLoader(final LayoutInflater layoutInflater, final ViewGroup container) {
 
-        uIloader = new UIloader(getContext()) {
-            @Override
-            public View getSuccesView() {
-                return createsuccessView(layoutInflater,container);
-            }
-        };
+            uIloader = new UIloader(getContext()) {
+                @Override
+                public View getSuccesView() {
+                    return createsuccessView(layoutInflater,container);
+                }
+            };
+
 
         //RecyclerVIew 使用
 
@@ -77,8 +77,11 @@ public class RecommendFragment extends BaseFragment implements IRecommendViewCal
 
 
     private View createsuccessView(LayoutInflater layoutInflater, ViewGroup container) {
-        //View加载完成
+
         rootView = layoutInflater.inflate(R.layout.fragment_recommend,container,false);
+
+        //View加载完成
+
         //1 找到控件
         mrecyclerView = rootView.findViewById(R.id.recommend_list);
         //2 设置布局管理器
@@ -88,10 +91,10 @@ public class RecommendFragment extends BaseFragment implements IRecommendViewCal
         mrecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-                outRect.top = UIUtil.dip2px(view.getContext(),5);
-                outRect.bottom= UIUtil.dip2px(view.getContext(),5);
-                outRect.left = UIUtil.dip2px(view.getContext(),5);
-                outRect.right = UIUtil.dip2px(view.getContext(),5);
+                outRect.top = UIUtil.dip2px(view.getContext(),10);
+                outRect.bottom= UIUtil.dip2px(view.getContext(),10);
+                outRect.left = UIUtil.dip2px(view.getContext(),10);
+                outRect.right = UIUtil.dip2px(view.getContext(),10);
             }
         });
 

@@ -1,5 +1,7 @@
 package com.example.shijie.adapter;
 
+import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,6 +26,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.InnerHol
     private TextView album_description;
     private TextView album_author;
     private TextView album_dynasty;
+    private Context context;
 
     public onRecommendItemClicklistener mItemClickListener;
 
@@ -33,6 +36,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.InnerHol
 
         //这里是 载View
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_history,viewGroup,false);
+        context = viewGroup.getContext();
+
         return new InnerHoler(itemView);
     }
 
@@ -77,12 +82,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.InnerHol
         }
 
         public void setData(PoetryHistory album) {
+            Typeface typeface = Typeface.createFromAsset(context.getAssets(),"4.TTF");
             title_tv = itemView.findViewById(R.id.album_title_tv);
             album_author = itemView.findViewById(R.id.album_author);
             album_date = itemView.findViewById(R.id.album_date);
-            title_tv.setText("题目 : "+album.getP_title());
-            album_author.setText("作者 : "+album.getP_author());
-            album_date.setText(album.getUpdatedAt());
+            title_tv.setTypeface(typeface);
+            title_tv.setText(album.getP_title());
+            typeface = Typeface.createFromAsset(context.getAssets(),"6.TTF");
+            album_author.setTypeface(typeface);
+            album_date.setTypeface(typeface);
+            album_author.setText(album.getP_author());
+            album_date.setText(album.getP_dynasty());
 
         }
     }

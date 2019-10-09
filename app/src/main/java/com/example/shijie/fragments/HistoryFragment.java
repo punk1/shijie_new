@@ -12,19 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.example.shijie.DetailActivity;
+import com.example.shijie.activities.DetailActivity;
 import com.example.shijie.R;
 import com.example.shijie.adapter.HistoryAdapter;
-import com.example.shijie.adapter.RecommenListAdapter;
 import com.example.shijie.base.BaseFragment;
 import com.example.shijie.beans.Poetry;
 import com.example.shijie.beans.PoetryHistory;
-import com.example.shijie.interfaces.AlbumDetailViewCallBack;
-import com.example.shijie.interfaces.HistoryPresenter;
 import com.example.shijie.interfaces.HistoryViewCallback;
 import com.example.shijie.presenters.AlbumDetailPresenter;
 import com.example.shijie.presenters.IHistoryPresenter;
-import com.example.shijie.presenters.RecommendPresenter;
 import com.example.shijie.views.UIloader;
 
 import net.lucode.hackware.magicindicator.buildins.UIUtil;
@@ -34,7 +30,6 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
-import cn.bmob.v3.listener.QueryListener;
 
 public class HistoryFragment extends BaseFragment implements HistoryViewCallback, UIloader.OnRetyrclickListenr, HistoryAdapter.onRecommendItemClicklistener {
 
@@ -99,10 +94,10 @@ public class HistoryFragment extends BaseFragment implements HistoryViewCallback
         mrecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-                outRect.top = UIUtil.dip2px(view.getContext(),5);
-                outRect.bottom= UIUtil.dip2px(view.getContext(),5);
-                outRect.left = UIUtil.dip2px(view.getContext(),5);
-                outRect.right = UIUtil.dip2px(view.getContext(),5);
+                outRect.top = UIUtil.dip2px(view.getContext(),10);
+                outRect.bottom= UIUtil.dip2px(view.getContext(),10);
+                outRect.left = UIUtil.dip2px(view.getContext(),10);
+                outRect.right = UIUtil.dip2px(view.getContext(),10);
             }
         });
 

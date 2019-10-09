@@ -7,6 +7,17 @@ public class PoetryHistory extends BmobObject {
     private String u_id;
     private String p_title;
     private String p_author;
+    private String p_dynasty;
+
+    public String getP_dynasty() {
+        return p_dynasty;
+    }
+
+    public void setP_dynasty(String p_dynasty) {
+        this.p_dynasty = p_dynasty;
+    }
+
+
 
     public String getP_id() {
         return p_id;

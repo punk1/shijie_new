@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/back6"
+    android:elevation="10dp">
 
     <android.support.v7.widget.RecyclerView
-        android:background="#F4F4F4"
+        android:background="@mipmap/back6"
         android:id="@+id/history_list"
         android:layout_width="match_parent"
         android:overScrollMode="never"

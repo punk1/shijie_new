@@ -23,6 +23,8 @@ public class QuanlistAdapter extends RecyclerView.Adapter<QuanlistAdapter.Inneho
     private TextView poetry_title_quan;
     private TextView poetry_content_quan;
     private TextView poetry_chuagnzuo_quan;
+    private TextView zan_text;
+    private TextView updata_text;
 
     @NonNull
     @Override
@@ -74,6 +76,8 @@ public class QuanlistAdapter extends RecyclerView.Adapter<QuanlistAdapter.Inneho
             poetry_title_quan = itemView.findViewById(R.id.poetry_title_quan);
             poetry_content_quan = itemView.findViewById(R.id.poetry_content_quan);
             poetry_chuagnzuo_quan = itemView.findViewById(R.id.poetry_chuagnzuo_quan);
+            zan_text = itemView.findViewById(R.id.zan_text);
+            updata_text = itemView.findViewById(R.id.updata_text);
 
             author_title_quan.setText(dynamicItem.getAuthor_name());
             poetry_title_quan.setText(dynamicItem.getTitle());
@@ -86,10 +90,10 @@ public class QuanlistAdapter extends RecyclerView.Adapter<QuanlistAdapter.Inneho
             Log.d("quan", "setData: "+content2);
 
             poetry_content_quan.setText(content2);
-
-            poetry_chuagnzuo_quan.setText("创作说明:"+dynamicItem.getZhushi());
-
-
+            Log.d("shi", "setData: "+dynamicItem.getZhushi());
+            poetry_chuagnzuo_quan.setText(""+dynamicItem.getZhushi());
+            zan_text.setText(""+dynamicItem.getZan_id());
+            updata_text.setText(dynamicItem.getUpdatedAt());
         }
     }
     public void setonquanItemClicklistener(onquanItemClicklistener listener){

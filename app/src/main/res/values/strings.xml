@@ -3,9 +3,7 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string-array name= "indicator_title">
         <item>推荐</item>
-        <item>收藏</item>
         <item>历史记录</item>
-        <item>社区</item>
     </string-array>
     <!--讯飞语音可配置参数-->
     <string-array name="stream_entries">

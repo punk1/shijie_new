@@ -2,7 +2,7 @@ package com.example.shijie.utils;
 
 import android.widget.Toast;
 
-import com.example.shijie.App;
+import com.example.shijie.activities.App;
 
 
 /**

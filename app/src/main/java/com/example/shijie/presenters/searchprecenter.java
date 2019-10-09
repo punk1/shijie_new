@@ -47,11 +47,11 @@ public class searchprecenter implements ISearchprecenter {
 
     private void query(String keyword) {
         BmobQuery <Poetry> bmobQuery= new BmobQuery<>();
-        // 按题目查询
-        bmobQuery.addWhereEqualTo("p_name",keyword);
-        bmobQuery.findObjects(new FindListener<Poetry>() {
-            @Override
-            public void done(List<Poetry> list, BmobException e) {
+                // 按题目查询
+                bmobQuery.addWhereEqualTo("p_name",keyword);
+                bmobQuery.findObjects(new FindListener<Poetry>() {
+                    @Override
+                    public void done(List<Poetry> list, BmobException e) {
                 if (e==null){
                     Log.d("tui", "doSearch: "+list.size());
                     if (list!=null &list.size()>0){

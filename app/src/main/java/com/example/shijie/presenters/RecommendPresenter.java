@@ -43,11 +43,14 @@ public class RecommendPresenter implements IRecommendPresenter {
         return sInstance;
     }
     private void doLoaed(final boolean isLoaderMore){
+
         BmobQuery<Poetry> query=new BmobQuery<Poetry>();
+//        query.order("-createdAt");
         query.setLimit(limitCount);
-        if (page != 0) {
-            query.setSkip(limitCount * page);
-        }
+//        if (page != 0) {
+//            query.setSkip(limitCount * page);
+//        }
+//       query.order("-updatedAt");
         query.findObjects(new FindListener<Poetry>() {
             @Override
             public void done(List<Poetry> list, BmobException e) {

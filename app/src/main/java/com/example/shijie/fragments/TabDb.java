@@ -15,7 +15,8 @@ public class TabDb {
      * 获得所有碎片
      */
     public static Class[] getFramgent(){
-        Class[] cls = {OneFm.class,TwoFm.class,ThreeFm.class,FourFm.class};
+        Class[] cls = {OneFm.class,SubscriptionFragment.class,quanFragment
+                .class,FourFm.class};
         return cls ;
     }
     /***
@@ -32,4 +33,5 @@ public class TabDb {
         int[] img = {R.drawable.ic_home2,R.drawable.ic_home2,R.drawable.ic_home2,R.drawable.ic_home2};
         return img ;
     }
+
 }
