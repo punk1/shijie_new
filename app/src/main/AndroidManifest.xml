@@ -43,7 +43,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".activities.ToWeatherActivity"/>
+        <activity android:name=".activities.WeatherActivity"/>
         <activity android:name=".activities.MainActivity2"/>
         <activity android:name=".activities.MainActivity"/>
         <activity android:name=".activities.DetailActivity"/>

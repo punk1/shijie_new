@@ -19,4 +19,6 @@
     <color name="tab_light_color">#C5CAE9</color>
     <color name="tab_color">#C8E6C9</color>
     <color name="tuijian">#c2c2c2</color>
+    <color name="backgroud_title">#669738</color>
+    <color name="backgroud">#F0FFF0</color>
 </resources>

@@ -16,7 +16,7 @@ public class TabDb {
      */
     public static Class[] getFramgent(){
         Class[] cls = {OneFm.class,SubscriptionFragment.class,quanFragment
-                .class,FourFm.class};
+                .class,MineFragment.class};
         return cls ;
     }
     /***
