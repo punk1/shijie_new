@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/normal_bg">
+    android:background="@mipmap/game_1">
+
     <include layout="@layout/base_toolbar"/>
 
     <TextView
         android:id="@+id/name"
         style="@style/Label"
         android:gravity="center" />
-
     <TextView
         android:id="@+id/zuozhe"
         style="@style/Label"
@@ -34,21 +34,48 @@
         android:textSize="25sp"
         android:visibility="invisible" />
 
+    <!--<LinearLayout-->
+        <!--android:orientation=""-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+
+    <!--<Button-->
+        <!--android:id="@+id/ok"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="12"-->
+        <!--android:background="@drawable/shape_tiankong_button_bg"/>-->
+    <!--<Button-->
+        <!--android:id="@+id/next"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="12"/>-->
+
+        <!--</LinearLayout>-->
+
     <LinearLayout
+        android:id="@+id/two_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/ok"
-            style="@style/Button"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:text="确定"
             android:background="@drawable/shape_tiankong_button_bg" />
-
         <Button
             android:id="@+id/next"
-            style="@style/Button"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:background="@drawable/shape_tiankong_button_bg"
             android:text="下一题" />
     </LinearLayout>
-
 </LinearLayout>

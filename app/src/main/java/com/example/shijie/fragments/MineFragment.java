@@ -66,7 +66,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         aLayout.setOnClickListener(this);
         aboutLayout = (RelativeLayout) mView.findViewById(R.id.layout_mine_Appabout);
         aboutLayout.setOnClickListener(this);
-        divideBar = (ImageView) mView.findViewById(R.id.divideBar_image);
+
     }
 
 

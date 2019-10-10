@@ -7,7 +7,7 @@
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:background="@drawable/normal_bg">
+        android:background="@mipmap/game_main">
         <include layout="@layout/base_toolbar"/>
 
         <ScrollView
@@ -38,15 +38,15 @@
                     <TextView
                         android:id="@+id/tv_poem_title"
                         android:layout_width="300dp"
-
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40dp"
                         android:ellipsize="end"
                         android:maxLines="2"
                         android:gravity="center_horizontal"
                         android:text="题目"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="30sp"
                         android:textStyle="bold" />
 
                     <RelativeLayout
@@ -56,7 +56,7 @@
                         android:layout_below="@+id/tv_poem_title"
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="25dp"
                         android:gravity="bottom">
 
                         <TextView
@@ -66,12 +66,12 @@
                             android:layout_alignParentBottom="true"
                             android:gravity="center_horizontal"
                             android:text="作者"
-                            android:textSize="17sp" />
+                            android:textSize="25sp" />
 
                         <ImageView
                             android:id="@+id/iv_back"
-                            android:layout_width="3dp"
-                            android:layout_height="3dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_toLeftOf="@+id/tv_poem_year"
                             android:layout_toRightOf="@+id/tv_poem_author"
                             android:src="@mipmap/dian"
@@ -85,9 +85,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@+id/tv_poem_author"
                             android:text="朝代"
-                            android:textColor="@color/white"
-
-                            android:textSize="17sp" />
+                            android:textSize="25sp" />
                     </RelativeLayout>
 
                     <TextView
@@ -97,12 +95,12 @@
                         android:layout_below="@+id/rl_poem_info"
                         android:layout_centerHorizontal="true"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center_horizontal"
                         android:lineSpacingMultiplier="1.5"
                         android:textColor="@color/black_darker"
-                        android:textSize="18sp" />
+                        android:textSize="25sp" />
                     <!--<RelativeLayout-->
                     <!--android:layout_width="80dp"-->
                     <!--android:layout_height="wrap_content"-->
@@ -140,7 +138,6 @@
                 </RelativeLayout>
 
             </RelativeLayout>
-
         </ScrollView>
 
     </LinearLayout>

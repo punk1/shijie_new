@@ -8,6 +8,8 @@ import android.support.v7.widget.AppCompatCheckBox;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import android.widget.EditText;
@@ -28,18 +30,20 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
 public class loginActivity extends AppCompatActivity {
-    private TextView tvTitle;
+//    private TextView tvTitle;
     private EditText et_user_name;
     private EditText et_user_pwd;
     private Button btn_login;
-    private  Button btn_regist;
+    private  TextView btn_regist;
     private AppCompatCheckBox cbRemember;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         Bmob.initialize(this, Constants.shi_BMOB_SDK_KEY);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
         initView();
         initViewdata();
@@ -121,7 +125,7 @@ public class loginActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        tvTitle = findViewById(R.id.tv_title);
+//        tvTitle = findViewById(R.id.tv_title);
         cbRemember = findViewById(R.id.cb_remember);
         et_user_name = findViewById(R.id.et_user_name);
         et_user_pwd = findViewById(R.id.et_user_pwd);
@@ -130,7 +134,7 @@ public class loginActivity extends AppCompatActivity {
     }
 
     public void initViewdata(){
-        tvTitle.setText("登录");
+//        tvTitle.setText("登录");
 
         String username = (String) SPUtil.getParam(this, "username", "");
         String password = (String) SPUtil.getParam(this, "password", "");

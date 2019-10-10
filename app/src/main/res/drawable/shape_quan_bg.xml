@@ -5,9 +5,9 @@
         android:width="390dp"
         android:height="140dp"/>
     <solid
-        android:color="#FFF"
+        android:color="#B3FFFFFF"
         />
     <corners
-        android:radius="5dp"/>
+        android:radius="15px"/>
 
 </shape>
