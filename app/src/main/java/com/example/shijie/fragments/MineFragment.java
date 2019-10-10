@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.example.shijie.R;
 import com.example.shijie.activities.ToWeatherActivity;
+import com.example.shijie.activities.TocangActivity;
 import com.example.shijie.views.RoundRectImageView;
 
 
@@ -27,6 +28,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     private RelativeLayout sLayout;
     private RelativeLayout aLayout;
     private RelativeLayout aboutLayout;
+    private RelativeLayout cang_tou;
     private ImageView divideBar;
 
 
@@ -67,6 +69,9 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         aboutLayout = (RelativeLayout) mView.findViewById(R.id.layout_mine_Appabout);
         aboutLayout.setOnClickListener(this);
 
+        cang_tou = (RelativeLayout)mView.findViewById(R.id.layout_cang_tou);
+        cang_tou.setOnClickListener(this);
+
     }
 
 
@@ -100,6 +105,11 @@ public class MineFragment extends Fragment implements View.OnClickListener {
 
                 Intent aboutIntent = new Intent(context, ToWeatherActivity.class);
                 startActivity(aboutIntent);
+
+
+            case R.id.layout_cang_tou:
+                Intent intent = new Intent(context, TocangActivity.class);
+                startActivity(intent);
             default:
                 break;
         }

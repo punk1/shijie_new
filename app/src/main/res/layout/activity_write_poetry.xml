@@ -3,37 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include layout="@layout/bar_quan" />
+    <include layout="@layout/bar_quan1" />
 
     <EditText
         android:id="@+id/write_title"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/shape_write_title"
         android:layout_width="350dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:hint="请输入标题"
         />
     <EditText
         android:id="@+id/write_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/shape_write_content_bg"
         android:layout_width="350dp"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:hint="请输入内容"/>
     <EditText
         android:id="@+id/write_zhushi"
         android:background="@drawable/shape_write_zhushi_bg"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
-        android:gravity="center_vertical"
-        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
         android:hint="请输入注释"
         />
+
+    <Button
+    android:id="@+id/write_btn"
+    android:layout_width="120dp"
+    android:layout_height="60dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="30dp"
+    android:text="发布"
+    android:textColor="#FFF"
+    android:background="@drawable/shape_fa_bg"
+    />
 
 
 </LinearLayout>

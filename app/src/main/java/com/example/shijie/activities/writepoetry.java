@@ -1,6 +1,7 @@
 package com.example.shijie.activities;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,7 +28,7 @@ import cn.bmob.v3.listener.SaveListener;
 
 public class writepoetry extends AppCompatActivity {
     private ImageView quan_back;
-    private TextView write_btn;
+    private Button write_btn;
     private EditText write_title;
     private EditText write_content;
     private EditText write_zhushi;
@@ -40,6 +42,7 @@ public class writepoetry extends AppCompatActivity {
     private Integer page ;
     private final DynamicItem dynamicItem = new DynamicItem();
     private IquanPresenter iquanPresenter ;
+    private TextView shi_tian_di;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,11 +59,13 @@ public class writepoetry extends AppCompatActivity {
         write_title = findViewById(R.id.write_title);
         write_content = findViewById(R.id.write_content);
         write_zhushi = findViewById(R.id.write_zhushi);
-
+        shi_tian_di = findViewById(R.id.shi_tian_di);
         quan_back.setVisibility(View.VISIBLE);
         write_btn.setVisibility(View.VISIBLE);
         write_btn.setText("发布");
-
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"shi_tian_di.TTF");
+        shi_tian_di.setTypeface(typeface);
+        shi_tian_di.setText("诗天地");
         quan_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

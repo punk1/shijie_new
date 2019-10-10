@@ -27,7 +27,7 @@
            android:layout_gravity="center"
            android:gravity="center"
            android:textSize="14sp"/>
-       <TextView
+             <TextView
            android:id="@+id/write_btn"
            android:background="@drawable/xieshi_bg"
            android:layout_gravity="center"
